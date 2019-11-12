@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
   resources :transactions
   resources :my_wallets
   resources :users
