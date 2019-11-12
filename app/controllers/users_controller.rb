@@ -21,6 +21,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def set_balance(amount)
+    @user.set_balance(amount)
+  end
+
   # POST /users
   # POST /users.json
   def create
