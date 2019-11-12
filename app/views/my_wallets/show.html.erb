@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @my_wallet.user_id %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @my_wallet.balance %>
+</p>
+
+<%= link_to 'Edit', edit_my_wallet_path(@my_wallet) %> |
+<%= link_to 'Back', my_wallets_path %>
