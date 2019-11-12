@@ -7,14 +7,14 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h3 class="card-title">Transfer Actions</h3>
-    <h4>Select Sender:</h4>
+    <h4>Select Sender ID:</h4>
     <select id="myDropDown">
       <%  @users.each do |user| %>
         <option><%= user.id %></option>
       <% end %>
     </select>
     <br>
-    <h4>SelectRecipient:</h4>
+    <h4>SelectRecipient ID:</h4>
     <select id="myDropDown">
       <%  @users.each do |user| %>
         <option><%= user.id %></option>
