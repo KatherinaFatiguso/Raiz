@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :transactions
 
   def set_balance(amount)
-    self.my_wallet.balance = amount
+    self.my_wallet.balance = amount.to_f
   end
 
   def display_balance

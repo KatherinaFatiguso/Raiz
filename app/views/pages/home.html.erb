@@ -7,7 +7,7 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h3 class="card-title">Transfer Actions</h3>
-    <%= form_tag(find_user_path, method: 'get', id: 'search-form') do %>
+    <%= form_tag(find_users_path, method: 'get', id: 'search-form') do %>
       <%= hidden_field_tag :user, params[:user], value: params[:user] %>
       <div class="row">
         <div class="input-field col 6">
@@ -19,7 +19,7 @@
           <label for="search"><i class="material-icons"></i>Enter Amount</label>
         </div>
       </div>
-      <%= submit_tag "Search", class: 'btn btn-edit' %>
+      <%= submit_tag "Create Transaction", class: 'btn btn-edit' %>
     <% end %>
   </div>
 </div>
@@ -50,6 +50,7 @@
 <table class="table">
   <thead>
   <tr>
+    <th scope="col">ID</th>
     <th scope="col">Name</th>
     <th scope="col">User</th>
     <th scope="col">Source wallet</th>
@@ -60,6 +61,7 @@
   <tbody>
   <% @transactions.each do |transaction| %>
     <tr>
+      <td><%= transaction.id %></td>
       <td><%= transaction.name %></td>
       <td><%= transaction.user_id %></td>
       <td><%= transaction.source_wallet %></td>
