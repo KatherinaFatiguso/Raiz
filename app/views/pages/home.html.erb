@@ -7,22 +7,20 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h3 class="card-title">Transfer Actions</h3>
-    <h4>Select Sender ID:</h4>
-    <select id="myDropDown">
-      <%  @users.each do |user| %>
-        <option><%= user.id %></option>
-      <% end %>
-    </select>
-    <br>
-    <h4>SelectRecipient ID:</h4>
-    <select id="myDropDown">
-      <%  @users.each do |user| %>
-        <option><%= user.id %></option>
-      <% end %>
-    </select>
-    <br>
-    <h4>Enter Amount</h4>
-    <br>
+    <%= form_tag(find_user_path, method: 'get', id: 'search-form') do %>
+      <%= hidden_field_tag :user, params[:user], value: params[:user] %>
+      <div class="row">
+        <div class="input-field col 6">
+          <%= text_field_tag :sender, params[:sender] %>
+          <label for="search"><i class="material-icons"></i>Enter Sender User ID</label>
+          <%= text_field_tag :recipient, params[:recipient] %>
+          <label for="search"><i class="material-icons"></i>Enter Recipient User ID</label>
+          <%= text_field_tag :amount, params[:amount] %>
+          <label for="search"><i class="material-icons"></i>Enter Amount</label>
+        </div>
+      </div>
+      <%= submit_tag "Search", class: 'btn btn-edit' %>
+    <% end %>
   </div>
 </div>
 
