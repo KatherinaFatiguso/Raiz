@@ -1,11 +1,11 @@
-<h1>Raiz Internal Wallet Transactional System</h1>
+<h1 style="text-align: center;">Raiz Internal Wallet Transactional System</h1>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
+<div class="card" style="width: 18rem; width: 100%; background-color: #dfe7f5; margin-top: 40px; margin-bottom: 40px;">
+  <div class="card-body" style="text-align: center">
     <h3 class="card-title">Transfer Actions</h3>
     <%= form_tag(find_users_path, method: 'get', id: 'search-form') do %>
       <%= hidden_field_tag :user, params[:user], value: params[:user] %>
@@ -19,7 +19,7 @@
           <label for="search"><i class="material-icons"></i>Enter Amount</label>
         </div>
       </div>
-      <%= submit_tag "Create Transaction", class: 'btn btn-edit' %>
+      <%= submit_tag "Create Transaction", class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
