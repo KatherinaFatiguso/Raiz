@@ -7,12 +7,16 @@ class PagesController < ApplicationController
   def find_users
     if params[:sender].present? && params[:recipient].present? && params[:amount].present?
       @sender = User.find(params[:sender])
-      puts @sender.id
       @recipient = User.find(params[:recipient])
-      puts @recipient.id
       @amount = params[:amount]
-      puts params[:amount]
-      create_transaction(@sender, @recipient, @amount)
+      if @amount.to_f < 0
+        puts 'Amount must be non-negative'
+        false
+      else
+        puts 'still going 2'
+        create_transaction(@sender, @recipient, @amount)
+      end
+
     else
       puts 'Please complete all fields'
       false
@@ -21,8 +25,6 @@ class PagesController < ApplicationController
   end
 
   def create_transaction(sender, recipient, amount)
-    puts '==='
-    puts sender.id, recipient.id, amount
     if check_amount_against_balance(sender, amount)
       puts 'enough balance'
       # Sender
@@ -34,6 +36,7 @@ class PagesController < ApplicationController
       create_credit_transaction(recipient, amount)
     else
       puts 'not enough balance'
+      false
     end
     true
   end
