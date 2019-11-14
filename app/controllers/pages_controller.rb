@@ -13,7 +13,6 @@ class PagesController < ApplicationController
         puts 'Amount must be non-negative'
         false
       else
-        puts 'still going 2'
         create_transaction(@sender, @recipient, @amount)
       end
 
